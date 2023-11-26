@@ -9,15 +9,15 @@ $s: hsl(233deg 36% 38%);
 	border-radius: 30px;
 	box-shadow: 0 0 2em hsl(231deg 62% 94%);
 }
-body {
-	user-select: none;
-	overflow-y: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: hsl(218deg 50% 91%);
-	height: 100vh;
-}
+// body {
+// 	user-select: none;
+// 	overflow-y: hidden;
+// 	// display: flex;
+// 	// justify-content: center;
+// 	// align-items: center;
+// 	background: hsl(218deg 50% 91%);
+// 	height: 100vh;
+// }
 .screen-1 {
 	@include screen;
 	gap: 2em;
