@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Link,  } from "react-router-dom";
-// import { AuthContext } from "../../context/authContext";
+import { useContext, useState } from "react";
+import { Link, useNavigate,  } from "react-router-dom";
+import { AuthContext } from "../../context/authContext.js";
 import "./login.scss";
 
 const Login = () => {
@@ -10,20 +10,20 @@ const Login = () => {
   });
   const [err, setErr] = useState(null);
 
-//   const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-//   const { login } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-    //   await login(inputs);
-    //   navigate("/")
+      await login(inputs);
+      navigate("/")
     } catch (err) {
-      setErr(err.response.data);
+      setErr(err?.response?.data);
     }
   };
 
@@ -36,13 +36,16 @@ const Login = () => {
         <form className="mt-6">
             <div className="mb-2">
                 <label
-                    htmlFor="email"
+                    htmlFor="username"
                     className="block text-sm font-semibold text-gray-800"
                 >
-                    Email
+                    Username
                 </label>
                 <input
-                    type="email"
+                   type="text"
+                   placeholder="Username"
+                   name="username"
+                   onChange={handleChange}
                     className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
             </div>
@@ -54,7 +57,10 @@ const Login = () => {
                     Password
                 </label>
                 <input
-                    type="password"
+                     type="password"
+                     placeholder="Password"
+                     name="password"
+                     onChange={handleChange}
                     className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
             </div>
@@ -65,7 +71,8 @@ const Login = () => {
                 Forget Password?
             </p>
             <div className="mt-6">
-                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+              <p>{err && err}</p>
+                <button onClick={handleLogin} className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
                     Login
                 </button>
             </div>

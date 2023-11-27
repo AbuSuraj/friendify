@@ -11,10 +11,12 @@ import {
 } from "react-router-dom"; 
 import Navbar from './components/navbar/Navbar.jsx';
 import Profile from './pages/profile/Profile.jsx';
+import { useContext } from 'react';
+import { AuthContext } from './context/authContext.js';
 
 
 function App() {
- const currentUser = true;
+  const { currentUser } = useContext(AuthContext);
 const Layout = () => {
   return (
      <div>
