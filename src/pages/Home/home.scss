@@ -1,4 +1,10 @@
-.p{
-    color: gold;
-    font-size: 30px;
-}
+.home{
+    @media (max-width: 480px) {
+        padding: 10px;
+      }
+      
+      @media (max-width: 960px) {
+        padding: 20px;
+      }
+    
+   }
