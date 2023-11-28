@@ -62,7 +62,7 @@ const Post = ({ post }) => {
   }, []); // Fetch likes on component mount
 
   return (
-    <div className="post">
+    <div className="post  mx-auto">
       <div className="container">
         <div className="user">
           <div className="userInfo">
@@ -101,10 +101,10 @@ const Post = ({ post }) => {
             <TextsmsOutlinedIcon />
             See Comments
           </div>
-          <div className="item">
+          {/* <div className="item">
             <ShareOutlinedIcon />
             Share
-          </div>
+          </div> */}
         </div>
         {commentOpen && <Comments postId={post.id} />}
       </div>

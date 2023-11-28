@@ -7,8 +7,12 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/authContext';
 const Navbar = () => {
-    const { currentUser } = useContext(AuthContext);
+    const { currentUser,logout } = useContext(AuthContext);
    console.log(currentUser);
+   const handleLogout = () => {
+    logout();
+    
+  };
     return (
         <div className='navbar'>
             <div className="left">
@@ -19,6 +23,7 @@ const Navbar = () => {
             </div>
             <div className="right">
                 <PersonOutlinedIcon/>
+                {currentUser && <p onClick={handleLogout}>Logout</p>}
                 <NotificationsOutlinedIcon/>
                 <div className="user">
           <img
