@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './navbar.scss';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/authContext';
 const Navbar = () => {
+    const { currentUser } = useContext(AuthContext);
+   console.log(currentUser);
     return (
         <div className='navbar'>
             <div className="left">
@@ -18,9 +21,12 @@ const Navbar = () => {
                 <PersonOutlinedIcon/>
                 <NotificationsOutlinedIcon/>
                 <div className="user">
-                    <img src={"/upload/" } alt="" />
-                    <span>user</span>
-                </div>
+          <img
+            src={ currentUser.profilePic}
+            alt=""
+          />
+          <span>{currentUser.name}</span>
+        </div>
             </div>
         </div>
     );
