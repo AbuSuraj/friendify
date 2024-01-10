@@ -114,7 +114,7 @@ const Register = () => {
                                 />
                             </div>
                         </div> */}
-                        <p className='py-4 text-red-500 text-xs'>{err && err}</p>
+                        <p className='py-4 text-red-500 text-xs'>{err && err?.message}</p>
                         <div className="flex items-center justify-end mt-4">
                             <Link to="/login">
                                 <button className="text-sm text-gray-600 underline hover:text-gray-900">Already registered?</button>

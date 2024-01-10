@@ -2,8 +2,13 @@ import Post from "../post/Post";
 import "./posts.scss";
 import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
-
-const Posts = ({userId}) => {
+import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
+const Posts = () => {
+  const { currentUser } = useContext(AuthContext); 
+  const userId = currentUser.id
+  console.log(userId);
   const { isLoading, error, data } = useQuery({
     queryKey: ["posts"],
     queryFn: () =>

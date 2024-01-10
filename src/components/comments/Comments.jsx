@@ -7,6 +7,7 @@ import moment from "moment";
 import { makeRequest } from "../../axios.js";
 
 const Comments = ({ postId }) => {
+  console.log(postId);
   const [desc, setDesc] = useState("");
   const { currentUser } = useContext(AuthContext);
 
@@ -57,7 +58,7 @@ const Comments = ({ postId }) => {
           type="text"
           placeholder="write a comment"
           value={desc}
-          onChange={(e) => setDesc(e.target.value)}
+          onChange={(e) => setDesc(e?.target?.value)}
         />
         <button onClick={handleClick}>Send</button>
       </div>
